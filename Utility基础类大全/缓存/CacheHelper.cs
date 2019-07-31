@@ -1,9 +1,9 @@
-﻿
+﻿ 
 using System;
 using System.Web;
 using System.Collections;
 
-namespace DotNet.Utilities
+namespace Common.Utility
 {
     public class CacheHelper
     {

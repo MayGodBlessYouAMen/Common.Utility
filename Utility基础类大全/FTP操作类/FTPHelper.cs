@@ -1,12 +1,16 @@
-﻿using System;  
+﻿ 
+using System;  
 using System.Collections.Generic;  
 using System.Text;  
 using System.IO;  
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace DotNet.Utilities
+namespace Common.Utility
 {
+    /// <summary>
+    /// FTP帮助类
+    /// </summary>
     public class FTPHelper
     {
         #region 字段
@@ -208,7 +212,7 @@ namespace DotNet.Utilities
             {
                 reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(url));
                 reqFTP.UseBinary = true;
-                reqFTP.Credentials = new NetworkCredential(ftpPassword, ftpPassword);
+                reqFTP.Credentials = new NetworkCredential(ftpUserID, ftpPassword);
                 reqFTP.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
                 WebResponse response = reqFTP.GetResponse();
                 StreamReader reader = new StreamReader(response.GetResponseStream());

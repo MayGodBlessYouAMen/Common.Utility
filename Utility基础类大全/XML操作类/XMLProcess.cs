@@ -1,9 +1,10 @@
-﻿using System;
+﻿ 
+using System;
 using System.Data;
 using System.IO;
 using System.Xml;
 
-namespace DotNet.Utilities
+namespace Common.Utility
 {
     public class XMLProcess
     {

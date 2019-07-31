@@ -1,9 +1,10 @@
-﻿using System;
+﻿ 
+using System;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace DotNet.Utilities
+namespace Common.Utility
 {
     /// <summary>
     /// 图片下载

@@ -1,9 +1,13 @@
+ 
 using System;
 using System.Text;
 using System.IO;
 
-namespace DotNet.Utilities
+namespace Common.Utility
 {
+    /// <summary>
+    /// FTP²Ù×÷Àà
+    /// </summary>
     public class FTPOperater
     {
         #region ÊôÐÔ

@@ -3,36 +3,15 @@ using System.Drawing.Imaging;
 using System.Collections;
 using System.Drawing;
 using System.IO;
+using System.Drawing.Drawing2D;
 
-namespace DotNet.Utilities
+namespace Utilities
 {
-    /// <summary>
-    /// 枚举,生成缩略图模式
-    /// </summary>
-    public enum ThumbnailMod : byte
-    {
-        /// <summary>
-        /// HW
-        /// </summary>
-        HW,
-        /// <summary>
-        /// W
-        /// </summary>
-        W,
-        /// <summary>
-        /// H
-        /// </summary>
-        H,
-        /// <summary>
-        /// Cut
-        /// </summary>
-        Cut
-    };
 
     /// <summary>
     /// 操作图片类, 生成缩略图,添加水印
     /// </summary>
-    public static class PicDeal
+    public  class PicDeal
     {
         private static Hashtable htmimes = new Hashtable();
         internal static readonly string AllowExt = ".jpe|.jpeg|.jpg|.png|.tif|.tiff|.bmp";
@@ -45,7 +24,7 @@ namespace DotNet.Utilities
         /// <param name="height"></param>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public static bool MakeThumbnail(string originalImagePath, int width, int height, ThumbnailMod mode)
+        public static bool MakeThumbnail(string originalImagePath, int width, int height,  string  mode)
         {
             string thumbnailPath = originalImagePath.Substring(0, originalImagePath.LastIndexOf('.')) + "s.jpg";
             Image originalImage = Image.FromFile(originalImagePath);
@@ -60,15 +39,15 @@ namespace DotNet.Utilities
 
             switch (mode)
             {
-                case ThumbnailMod.HW://指定高宽缩放（可能变形）                
+                case "HW":  //指定高宽缩放（可能变形）                
                     break;
-                case ThumbnailMod.W://指定宽，高按比例                    
+                case "W":   //指定宽，高按比例                    
                     toheight = originalImage.Height * width / originalImage.Width;
                     break;
-                case ThumbnailMod.H://指定高，宽按比例
+                case "H":   //指定高，宽按比例
                     towidth = originalImage.Width * height / originalImage.Height;
                     break;
-                case ThumbnailMod.Cut://指定高宽裁减（不变形）                
+                case "Cut": //指定高宽裁减（不变形）                 
                     if ((double)originalImage.Width / (double)originalImage.Height > (double)towidth / (double)toheight)
                     {
                         oh = originalImage.Height;
@@ -160,19 +139,6 @@ namespace DotNet.Utilities
         }
         #endregion
 
-        /// <summary>
-        /// 公共方法
-        /// </summary>
-        private static void GetImgType()
-        {
-            htmimes[".jpe"] = "image/jpeg";
-            htmimes[".jpeg"] = "image/jpeg";
-            htmimes[".jpg"] = "image/jpeg";
-            htmimes[".png"] = "image/png";
-            htmimes[".tif"] = "image/tiff";
-            htmimes[".tiff"] = "image/tiff";
-            htmimes[".bmp"] = "image/bmp";
-        }
 
 
         #region 返回新图片尺寸

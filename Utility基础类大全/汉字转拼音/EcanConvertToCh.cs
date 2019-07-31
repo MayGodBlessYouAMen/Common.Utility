@@ -1,6 +1,7 @@
-﻿using System.Text.RegularExpressions;
+﻿ 
+using System.Text.RegularExpressions;
 
-namespace DotNet.Utilities
+namespace Common.Utility
 {
     /// <summary>
     /// 汉字转拼音类
